@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 for the Win</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel" aria-label="Game setup">
+      <div class="brand-row">
+        <span class="brand-mark">5</span>
+        <span>Vocabulary Challenge</span>
+      </div>
+
+      <div class="hero-copy">
+        <h1>5 for the Win</h1>
+        <p>Read the category, choose exactly five matching words, then check your answer.</p>
+      </div>
+
+      <div class="setup-grid" aria-label="Game settings">
+        <label>
+          Seconds
+          <input id="roundSeconds" type="number" min="10" max="120" value="45">
+        </label>
+        <label>
+          Rounds
+          <input id="roundLimit" type="number" min="1" max="5" value="5">
+        </label>
+      </div>
+
+      <div class="action-row">
+        <button id="startGame" class="primary-btn">Start Game</button>
+        <button id="shuffleCards" class="secondary-btn">Shuffle</button>
+      </div>
+    </section>
+
+    <section class="game-panel" aria-label="Game board">
+      <header class="scoreboard">
+        <article class="score-card active">
+          <span>Total score</span>
+          <strong id="totalScore">0</strong>
+        </article>
+        <div class="round-status">
+          <span id="roundCounter">Round 1 / 5</span>
+          <strong id="timer">45</strong>
+        </div>
+        <article class="score-card target-card">
+          <span>Best possible</span>
+          <strong id="bestScore">25</strong>
+        </article>
+      </header>
+
+      <div class="play-area">
+        <aside class="reference-strip rule-strip" aria-label="Game rules">
+          <div>
+            <strong>1</strong>
+            <span>Read the category.</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>Pick only 5 words.</span>
+          </div>
+          <div>
+            <strong>3</strong>
+            <span>Check and score.</span>
+          </div>
+        </aside>
+
+        <section class="prompt-card word-board">
+          <span class="prompt-kicker">Category</span>
+          <h2 id="promptText">Crime and Criminals</h2>
+          <div class="selection-status">
+            <strong id="selectedCounter">0 / 5 selected</strong>
+            <span id="feedbackText">Choose five words that belong to the category.</span>
+          </div>
+          <div id="wordGrid" class="word-grid" aria-label="Word choices"></div>
+        </section>
+
+        <aside class="controls-panel">
+          <p id="statusText">Ready to play</p>
+          <div class="control-stack">
+            <button id="checkBtn" class="success-btn" disabled>Check 5</button>
+            <button id="clearBtn" class="danger-btn" disabled>Clear</button>
+            <button id="nextBtn" class="secondary-btn" disabled>Next round</button>
+          </div>
+          <button id="resetGame" class="ghost-btn">Reset</button>
+        </aside>
+      </div>
+
+      <footer class="category-tray" id="categoryTray" aria-label="Round categories"></footer>
+    </section>
+
+    <dialog id="resultDialog">
+      <div class="result-box">
+        <span class="result-label">Game over</span>
+        <h2 id="resultTitle">Final score</h2>
+        <p id="resultDetails">0 / 25</p>
+        <button id="playAgain" class="primary-btn">Play Again</button>
+      </div>
+    </dialog>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
